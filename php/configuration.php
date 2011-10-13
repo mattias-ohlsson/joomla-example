@@ -9,9 +9,9 @@ class JConfig {
 	public $debug = '0';
 	public $debug_lang = '0';
 	public $dbtype = 'mysqli';
-	public $host = $_ENV['OPENSHIFT_DB_HOST'];
-	public $user = $_ENV['OPENSHIFT_DB_USERNAME'];
-	public $password = $_ENV['OPENSHIFT_DB_PASSWORD'];
+	public $host = '';
+	public $user = '';
+	public $password = '';
 	public $db = 'joomla';
 	public $dbprefix = 'tt7ki_';
 	public $live_site = '';
@@ -48,8 +48,16 @@ class JConfig {
 	public $sef_suffix = '0';
 	public $unicodeslugs = '0';
 	public $feed_limit = '10';
-	public $log_path = $_ENV['OPENSHIFT_LOG_DIR'];
-	public $tmp_path = $_ENV['OPENSHIFT_TMP_DIR'];
+	public $log_path = '';
+	public $tmp_path = '';
 	public $lifetime = '15';
 	public $session_handler = 'database';
+
+	public function __construct() {
+		$this->host = getenv("OPENSHIFT_DB_HOST");
+		$this->user = getenv("OPENSHIFT_DB_USERNAME");
+		$this->password = getenv("OPENSHIFT_DB_PASSWORD");
+		$this->log_path = getenv("OPENSHIFT_LOG_DIR");
+		$this->tmp_path = getenv("OPENSHIFT_TMP_DIR");
+	}
 }
