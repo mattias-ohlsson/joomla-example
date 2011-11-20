@@ -34,7 +34,7 @@ Then push the repo upstream
 
 That's it, you can now checkout your application at (default admin account is admin/4dm1n):
 
-    http://joomla-$your_domain.rhcloud.com
+    http://joomla-$yournamespace.rhcloud.com
 
 
 NOTES:
