@@ -12,7 +12,7 @@ class JConfig {
 	public $host = '';
 	public $user = '';
 	public $password = '';
-	public $db = 'joomla';
+	public $db = '';
 	public $dbprefix = 'tt7ki_';
 	public $live_site = '';
 	public $secret = 'UnX75NMoFOpLpSn6';
@@ -57,6 +57,7 @@ class JConfig {
 		$this->host = getenv("OPENSHIFT_DB_HOST");
 		$this->user = getenv("OPENSHIFT_DB_USERNAME");
 		$this->password = getenv("OPENSHIFT_DB_PASSWORD");
+		$this->db = getenv("OPENSHIFT_APP_NAME");
 		$this->log_path = getenv("OPENSHIFT_LOG_DIR");
 		$this->tmp_path = getenv("OPENSHIFT_TMP_DIR");
 	}
