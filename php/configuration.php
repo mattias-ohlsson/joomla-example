@@ -54,7 +54,7 @@ class JConfig {
 	public $session_handler = 'database';
 
 	public function __construct() {
-		$this->host = getenv("OPENSHIFT_DB_HOST");
+		$this->host = getenv("OPENSHIFT_DB_HOST").":".getenv("OPENSHIFT_DB_PORT");
 		$this->user = getenv("OPENSHIFT_DB_USERNAME");
 		$this->password = getenv("OPENSHIFT_DB_PASSWORD");
 		$this->db = getenv("OPENSHIFT_APP_NAME");
